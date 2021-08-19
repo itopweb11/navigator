@@ -1,0 +1,122 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.forms {
+  margin-left: 20px;
+  padding-top: 30px;
+  background-color: #e7e6e6;
+}
+
+.forms__heading h3 {
+  color: #585555;
+}
+.forms__heading p {
+  color: #797877;
+  margin-top: 7px;
+}
+
+.forms__block {
+  width: 1250px;
+  min-height: 660px;
+  background: white;
+  border-radius: 10px;
+  margin-top: 23px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forms__block__steps {
+  display: flex;
+  justify-content: center;
+}
+.forms__block__steps div {
+  width: 400px;
+  min-height: 50px;
+  background-color: #efefef;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border: solid 1px #b5b5b5;
+}
+.forms__block__steps div p {
+  font-weight: 500;
+  color: #5f5f5f;
+}
+
+.forms__block__stepActive {
+  background-color: #518bea !important;
+}
+.forms__block__stepActive p {
+  color: white !important;
+}
+
+.forms__block__buttons {
+  margin-top: 15px;
+}
+.forms__block__buttons button {
+  width: 100px;
+  height: 40px;
+  background-color: #70bbfd;
+  border-color: #70bbfd;
+  margin-right: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  border: aliceblue;
+}
+.forms__block__buttons button:hover {
+  background-color: #276692;
+  transition: 0.5s;
+}
+
+.FormStep1 {
+  margin-top: 50px;
+  width: 700px;
+}
+
+.FormStep1__heading h2 {
+  color: #585555;
+  text-align: center;
+}
+
+.FormStep1__inputs {
+  margin-top: 25px;
+}
+
+.FormStep1__input {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.FormStep1__input p {
+  color: #7b7b7b;
+  font-size: 13px;
+}
+.FormStep1__input input {
+  width: 525px;
+  min-height: 30px;
+  border: solid 1px #ececec;
+  border-radius: 2px;
+  padding-left: 10px;
+}
+
+.FormStep2__input_address input {
+  width: 198px;
+}
+
+p {
+  color: #7b7b7b;
+  font-size: 13px;
+}
+
+.inputNon-active {
+  border: solid 1px red !important;
+}
+
+/*# sourceMappingURL=Register.css.map */
