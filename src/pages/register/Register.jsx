@@ -4,47 +4,59 @@ import FormStep1 from "./FormStep1/FormStep1";
 import RegisterFormStep2 from "./FormStep2/FormStep2";
 import RegFormStep3 from "./FormStep3/FormStep3";
 
-const Register = () => {
-    const [Name, setName] = useState('');
-    const [Gmail, setGmail] = useState('');
-    const [Url, setUrl] = useState('');
-    const [Password, setPassword] = useState('');
-    const [Select, setSelect] = useState('')
-    const [CityName, setCityName] = useState('')
-    const [StreetName, setStreetName] = useState('')
-    const [Building, setBuilding] = useState('')
-    const [ZIPCode, setZIPCode] = useState('')
-    const [Change, setChange] = useState('')
-    const [EMail, setEMail] = useState('')
-    const [Phone, setPhone] = useState('')
-
+const Register = ({setFinish, handleOnChange, state}) => {
     const [count, setCount] = useState(1)
-    const [number, seNumber] = useState(0)
-
-
-
+    const [number, setNumber] = useState(0)
 
     const inputCheckStep1 = ()=> {
-        if (count === 1){
-            if (Name.length < 5 || Gmail.length<5 || Url.length<5 || Password.length < 5) {
-                seNumber(1)
-                return;
-            }
-            setCount(2)
+        switch (count) {
+            case 1:
+                if (state.name.length < 5 || state.gmail.length < 5 || state.url.length < 5 || state.password.length < 5) {
+                    setNumber(1)
+                    return;
+                }
+                setCount(2);
+                break;
+            case 2:
+                if (state.select.length < 5 || state.cityName.length <5 || state.streetName.length <5 || state.building.length < 5 || state.zipCode.length < 5) {
+                    setNumber(2)
+                    return;
+                }
+                setCount(3)
+                break;
+            case 3:
+                if (state.change.length < 5 || state.eMail.length <5 || state.phone.length <5 ) {
+                    setNumber(3)
+                    return;
+                }
+                setCount(4)
+                break;
         }
-        if (count === 2) {
-            if (Select.length < 5 || CityName.length <5 || StreetName.length <5 || Building.length < 5 || ZIPCode.length < 5) {
-                seNumber(2)
-                return;
-            }
-            setCount(3)
-        }
-        if (count === 3) {
-            if (Change.length < 5 || EMail.length <5 || Phone.length <5 ) {
-                seNumber(3)
-                return;
-            }
-            setCount(3)
+    }
+
+    const forms = () => {
+        switch (count) {
+            case 1:
+                return <FormStep1
+                    state={state}
+                    handleOnChange={handleOnChange}
+                    number={number}
+                />
+            case 2:
+                return <RegisterFormStep2
+                    state = {state}
+                    handleOnChange = {handleOnChange}
+                    number = {number}
+                />
+            case 3:
+                return <RegFormStep3
+                    state = {state}
+                    handleOnChange = {handleOnChange}
+                    number = {number}
+                />
+            case 4:
+                setFinish(true);
+                break;
         }
     }
 
@@ -52,6 +64,7 @@ const Register = () => {
         if (count !== 1)
             setCount(count => count - 1)
     }
+
 
     return (
         <div className='forms'>
@@ -71,42 +84,7 @@ const Register = () => {
                         <p>STEP 3</p>
                     </div>
                 </div>
-
-                {count === 1 ? <FormStep1
-                    Name = {Name}
-                    setName = {setName}
-                    Gmail = {Gmail}
-                    setGmail = {setGmail}
-                    Url = {Url}
-                    setUrl = {setUrl}
-                    Password = {Password}
-                    setPassword = {setPassword}
-                    number = {number}
-                /> : false}
-
-                {count === 2 ? <RegisterFormStep2
-                    Select = {Select}
-                    setSelect = {setSelect}
-                    CityName = {CityName}
-                    setCityName = {setCityName}
-                    StreetName = {StreetName}
-                    setStreetName = {setStreetName}
-                    Building = {Building}
-                    setBuilding = {setBuilding}
-                    ZIPCode = {ZIPCode}
-                    setZIPCode = {setZIPCode}
-                    number = {number}
-                /> : false}
-
-                {count === 3 ? <RegFormStep3
-                    Change = {Change}
-                    setChange = {setChange}
-                    EMail = {EMail}
-                    setEMail = {setEMail}
-                    Phone = {Phone}
-                    setPhone = {setPhone}
-                    number = {number}
-                /> : false}
+                { forms() }
                 <div className='forms__block__buttons'>
                     <button onClick={stepBack} disabled={count === 1} type='button'>Back</button>
                     <button onClick={inputCheckStep1} type='button'>Next</button>

@@ -83,9 +83,10 @@ const Navigator = () => {
                     {
                         buttons.map((item, index) =>
                             <div
+                                key={index}
                                 onClick={()=>setActive(index)}
-                                className={index === active ? "header__button__active" : ""
-                                }>
+                                className={index === active ? "header__button__active" : ""}
+                            >
                                 <p>{item.button}</p>
                             </div>
                         )
@@ -93,9 +94,7 @@ const Navigator = () => {
                 </div>
                 <hr/>
                 <div className='header__desc'>
-                    <p>
-                        {buttons[active].desc}
-                    </p>
+                    <p>{buttons[active].desc}</p>
                 </div>
             </div>
         </div>

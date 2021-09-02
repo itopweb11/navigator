@@ -1,7 +1,9 @@
 import React from 'react';
 import '../Register.css'
 
-const RegisterFormStep2 = (props) => {
+
+const RegisterFormStep2 = ({state, handleOnChange, number}) => {
+    console.log(state)
     return (
         <div className='FormStep1'>
             <div className='FormStep1__heading'>
@@ -11,43 +13,57 @@ const RegisterFormStep2 = (props) => {
                 <div className='FormStep1__input'>
                     <p>Country</p>
                     <input
-                        value={props.Select}
-                        onChange={e => props.setSelect(e.target.value)}
-                        className={props.Select.length < 5 && props.number === 2 ? 'inputNon-active' : ''}
-                        placeholder='Select country' type="text"
+                        name="select"
+                        value={state.select}
+                        onChange={event => handleOnChange(event)}
+                        className={state.select.length < 5 && number === 2 ? 'inputNon-active' : ''}
+                        placeholder='Select country'
+                        type="text"
+                        autoComplete="off"
                     />
                 </div>
                 <div className='FormStep1__input'>
                     <p>City</p>
                     <input
-                        value={props.CityName}
-                        onChange={e => props.setCityName(e.target.value)}
-                        className={props.CityName.length < 5 && props.number === 2 ? 'inputNon-active' : ''}
-                        placeholder='City name' type="text"
+                        name="cityName"
+                        value={state.cityName}
+                        onChange={event => handleOnChange(event)}
+                        className={state.cityName.length < 5 && number === 2 ? 'inputNon-active' : ''}
+                        placeholder='City name'
+                        type="text"
+                        autoComplete="off"
                     />
                 </div>
                 <div className='FormStep1__input FormStep2__input_address'>
                     <p>Address</p>
                     <input
-                        value={props.StreetName}
-                        onChange={e => props.setStreetName(e.target.value)}
-                        className={props.StreetName.length < 5 && props.number === 2 ? 'inputNon-active' : ''}
-                        placeholder='Street name' type="text"
+                        name="streetName"
+                        value={state.streetName}
+                        onChange={event => handleOnChange(event)}
+                        className={state.streetName.length < 5 && number === 2 ? 'inputNon-active' : ''}
+                        placeholder='Street name'
+                        type="text"
+                        autoComplete="off"
                     />
                     <input
-                        value={props.Building}
-                        onChange={e => props.setBuilding(e.target.value)}
-                        className={props.Building.length < 5 && props.number === 2 ? 'inputNon-active' : ''}
-                        placeholder='Building' type="text"
+                        name="building"
+                        value={state.building}
+                        onChange={event => handleOnChange(event)}
+                        className={state.building.length < 5 && number === 2 ? 'inputNon-active' : ''}
+                        placeholder='Building'
+                        type="text"
+                        autoComplete="off"
                     />
                 </div>
                 <div className='FormStep1__input'>
                     <p>ZIP Code</p>
                     <input
-                        value={props.ZIPCode}
-                        onChange={e => props.setZIPCode(e.target.value)}
-                        className={props.ZIPCode.length < 5 && props.number === 2 ? 'inputNon-active' : ''}
+                        name="zipCode"
+                        value={state.zipCode}
+                        onChange={event => handleOnChange(event)}
+                        className={state.zipCode.length < 5 && number === 2 ? 'inputNon-active' : ''}
                         type="text"
+                        autoComplete="off"
                     />
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Register.css'
 
-const FormStep1 = (props) => {
+const FormStep1 = ({state, handleOnChange, number}) => {
 return (
     <div className='FormStep1'>
         <div className='FormStep1__heading'>
@@ -11,34 +11,50 @@ return (
             <div className='FormStep1__input'>
                 <p>Username</p>
                 <input
-                    value={props.Name}
-                    onChange={e => props.setName(e.target.value)}
-                    className={props.Name.length < 5 && props.number === 1 ? 'inputNon-active' : ''}
-                    placeholder='Name' type="text"/>
+                    name="name"
+                    value={state.name}
+                    onChange={event => handleOnChange(event)}
+                    className={state.name.length < 5 && number === 1 ? 'inputNon-active' : ''}
+                    placeholder='Name'
+                    type="text"
+                    autoComplete="off"
+                />
             </div>
             <div className='FormStep1__input'>
                 <p>E-mail</p>
                 <input
-                    value={props.Gmail}
-                    onChange={e => props.setGmail(e.target.value)}
-                    className={props.Gmail.length < 5 && props.number === 1 ? 'inputNon-active' : ''}
-                    placeholder='example@mail.com' type="text"/>
+                    name="gmail"
+                    value={state.gmail}
+                    onChange={event => handleOnChange(event)}
+                    className={state.gmail.length < 5 && number === 1 ? 'inputNon-active' : ''}
+                    placeholder='example@mail.com'
+                    type="text"
+                    autoComplete="off"
+                />
             </div>
             <div className='FormStep1__input'>
                 <p>Url</p>
                 <input
-                    value={props.Url}
-                    onChange={e => props.setUrl(e.target.value)}
-                    className={props.Url.length < 5 && props.number === 1 ? 'inputNon-active' : ''}
-                    placeholder='https://themerofest.net' type="text"/>
+                    name="url"
+                    value={state.url}
+                    onChange={event => handleOnChange(event)}
+                    className={state.url.length < 5 && number === 1 ? 'inputNon-active' : ''}
+                    placeholder='https://themerofest.net'
+                    type="text"
+                    autoComplete="off"
+                />
             </div>
             <div className='FormStep1__input'>
                 <p>Password</p>
                 <input
-                    value={props.Password}
-                    onChange={e => props.setPassword(e.target.value)}
-                    className={props.Password.length < 5 && props.number === 1 ? 'inputNon-active' : ''}
-                    placeholder='Password' type="text"/>
+                    name="password"
+                    value={state.password}
+                    onChange={event => handleOnChange(event)}
+                    className={state.password.length < 5 && number === 1 ? 'inputNon-active' : ''}
+                    placeholder='Password'
+                    type="text"
+                    autoComplete="off"
+                />
             </div>
         </div>
     </div>
